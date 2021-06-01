@@ -1,0 +1,76 @@
+name: learn-github-actions
+on: [push]
+
+jobs:
+
+  use-variables: 
+    runs-on: macOS-latest
+    name: Checkout and print repo and workflow info
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      
+      - name: Use variables to print text about this workflow and repo
+        run: |
+          echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+          echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+          echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+          echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+          echo "🖥️ The workflow is now ready to test your code on the runner."
+      
+      - name: Use variables to list files in the repository and print job status
+        run: |
+          ls ${{ github.workspace }}
+          echo "🍏 This job's status is ${{ job.status }}."
+  
+  
+  make-files: 
+    runs-on: macOS-latest
+    name: Make files and store to repo
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+        
+      - name: Set up R
+        uses: r-lib/actions/setup-r@master
+          
+      - name: Make a temporary object, an artifact
+        run: |
+          mkdir -p data/artifact
+          echo hello > data/world.txt
+      
+      - name: Upload artifact, to persist for 365 days
+        uses: actions/upload-artifact@v2
+        with:
+          name: hello-world-text-artifact
+          path: data/world.txt
+          retention-days: 365
+    
+      - name: Run some R code to make a .txt file
+        run: |
+          mkdir -p data/my_file1.txt
+          Rscript -e 'writeLines("text_lines", "my_file3.txt")'
+      
+      - name: Commit and push artifact and .txt file
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add --all
+          git commit -am "add txt file"
+          git push 
+      
+          
+  make-artifact:
+    runs-on: macOS-latest
+    name: Make a temporary object, an artifact
+    steps:
+      
+      - shell: bash
+        run: |
+          expr 1 + 2 > output.log
+          
+      - name: Upload output file
+        uses: actions/upload-artifact@v2
+        with:
+          name: output-log-file
+          path: output.log
