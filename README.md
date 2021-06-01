@@ -9,4 +9,4 @@ GitHub Actions learning resources aren't made for non-technical people new to au
 <br>very basic 1, 2 or 3 line R and bash coding
 
 
-### Ok, now go start [here](https://github.com/lizre/learn-actions/guide.Rmd)!
+### Ok, now go start [here](https://github.com/lizre/learn-actions/blob/main/guide.html)!
