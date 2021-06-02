@@ -29,7 +29,7 @@ jobs:
     steps:
       
       - name: shell script
-        run: echo Look, it's text!
+        run: echo Look, it's text!'
           
       - name: Make a temporary object, an artifact
         run: |
@@ -67,7 +67,7 @@ jobs:
       - name: Run some R code to make a .txt file
         run: |
           mkdir -p data/my_file1.txt
-          Rscript -e 'writeLines("text_lines", "my_file3.txt")'
+          Rscript -e 'writeLines("text_lines", "my_file2.txt")'
       
       - name: Commit and push artifact and .txt file
         run: |
