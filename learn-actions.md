@@ -48,7 +48,7 @@ A time or event.
 
 Example event trigger: 
 ```
-on: [push, pull request]
+on: [push]
 ```
 
 Or use a time interval. Example: every hour:
@@ -73,20 +73,15 @@ The steps of a workflow happen on a [runner](https://github.com/actions/runner):
 
 ```
 jobs:
-  job-name_doing-actions:   # put a job name here!
+  job-name:   # put a job name here!
     runs-on: macOS-latest
 
     steps:
-      - name: Checkout repo
+      - name: Check out repository code
         uses: actions/checkout@v2
         
-        # set up an R session on the Actions server
-      - name: Set up R
-      - uses: r-lib/actions/setup-r@master
 ```
 `Checkout` checks out your code from your repo and puts it onto the server where this stuff will run.
-
-`Setup R` [installs R on that same server](https://github.com/r-lib/actions/tree/master/setup-r).
 
 `"Uses"`: [says what action to use and its version](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsuses). 
 <br>This is relevant if you are using a workflow step someone else made instead of starting from scratch. These two steps of checking our the repo and setting up R are already pre-made!
@@ -99,8 +94,6 @@ jobs:
 - For example, you can see that the "Set up R" step "uses" r-lib/actions/setup-r@master, which is at 
 [https://github.com/r-lib/actions/tree/master/setup-r](https://github.com/r-lib/actions/tree/master/setup-r)
 
-<br>
-You won't always need all these setup steps, but sometimes you will, and it's good to know about!
 
 <br>
 
@@ -112,7 +105,7 @@ You won't always need all these setup steps, but sometimes you will, and it's go
 <br>
 
 
-# 4. Reading/writing the workflow: Actually doing things
+# 5. Reading/writing the workflow: using variables and bash
 
 
 ### Use variables
@@ -120,28 +113,66 @@ You won't always need all these setup steps, but sometimes you will, and it's go
 Examples, and others, [here](https://docs.github.com/en/actions/quickstart):
   
 ```{r, eval = FALSE}
-- run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-- run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-- run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+
+      - name: Use variables to print text about this workflow and repo
+        run: |
+          echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+          echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+
 ```
 
+Use `|` to run multiple lines in one named step.
 
-### Running bash commands 
+<br>
+
+### Running shell commands using the runners shell
 
 ```{r, eval = FALSE}
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: shell script
+        run: echo Look, it's text!
 
 ```
 
-### Do things in R: without creating a .R
+
+### Artifacts
+
+An artifact is a temporary object (like a file) that you might create as part of a workflow, that goes away after a specified amount of time. I don't yet know why you would want this.
+
+<br>
+<br>
+
+
+
+# 6. Check if workflow worked and see its output
+
+[Actions tab in repo](https://github.com/lizre/learn-actions/actions)
+
+
+<br>
+<br>
+
+# 7. Reading/writing the workflow: Actually doing things: using R!
+
+
+`Setup R` [installs R on the runner](https://github.com/r-lib/actions/tree/master/setup-r).
+
+```
+jobs:
+  job-name_doing-actions:   # put a job name here!
+    runs-on: macOS-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        
+        # set up an R session on the Actions server
+      - name: Set up R
+      - uses: r-lib/actions/setup-r@master
+```
+
+
+### Without creating a separate .R
 
 ```{r, eval = FALSE}
 - run: Rscript -e 'print("hello")'
@@ -150,7 +181,7 @@ Examples, and others, [here](https://docs.github.com/en/actions/quickstart):
 
 
 
-### Do things in R: with a separate .R
+### With a separate .R
 
 ```{r, eval = FALSE}
       - name: Generate data
@@ -160,15 +191,15 @@ Examples, and others, [here](https://docs.github.com/en/actions/quickstart):
         
 ```
 
+### Uploading
 
 
-### Do things in R: install dependencies
+xxx
+
+
+### Install dependencies
 
 Search for "install" [here](https://github.com/tidymodels/extratests/blob/master/.github/workflows/GH-R-CMD-check.yaml)
-
-### Uploading a file/artifact
-
-https://github.com/lizre/axns/actions/runs/893050999
 
 
 <br>

@@ -23,16 +23,13 @@ jobs:
           ls ${{ github.workspace }}
           echo "🍏 This job's status is ${{ job.status }}."
   
-  
-  make-files: 
+  shell-steps:
     runs-on: macOS-latest
-    name: Make files and store to repo
+    name: Make a temporary object, an artifact
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
-        
-      - name: Set up R
-        uses: r-lib/actions/setup-r@master
+      
+      - name: shell script
+        run: echo Look, it's text!
           
       - name: Make a temporary object, an artifact
         run: |
@@ -45,7 +42,28 @@ jobs:
           name: hello-world-text-artifact
           path: data/world.txt
           retention-days: 365
-    
+
+      - shell: bash
+        run: |
+          expr 1 + 2 > output.log
+          
+      - name: Upload artifact, to persist for 365 days
+        uses: actions/upload-artifact@v2
+        with:
+          name: output-log-file
+          path: output.log
+          retention-days: 365
+
+  R-steps: 
+    runs-on: macOS-latest
+    name: Make files and store to repo
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+        
+      - name: Set up R
+        uses: r-lib/actions/setup-r@master
+        
       - name: Run some R code to make a .txt file
         run: |
           mkdir -p data/my_file1.txt
@@ -60,17 +78,3 @@ jobs:
           git push 
       
           
-  make-artifact:
-    runs-on: macOS-latest
-    name: Make a temporary object, an artifact
-    steps:
-      
-      - shell: bash
-        run: |
-          expr 1 + 2 > output.log
-          
-      - name: Upload output file
-        uses: actions/upload-artifact@v2
-        with:
-          name: output-log-file
-          path: output.log
