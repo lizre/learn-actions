@@ -238,14 +238,6 @@ worked in the Terminal.
 This `Rscript -e 'writeLines("text", paste0("data/", "text", ".txt"))'` worked
  just fine in Terminal and is very simple, but it would not run as a workflow.
 
-### Unresolved: workflow completes but file-creating step doesn't appear to have executed
-
-[This run](https://github.com/lizre/axns/runs/2706803576?check_suite_focus=true): 
-Ran successfully but there's no file!
-Closest I could get was using the upload-artifact Action:
-[this run](https://github.com/lizre/axns/actions/runs/893050999), as [here](https://github.com/actions/upload-artifact) (docs [here](https://docs.github.com/en/actions/guides/storing-workflow-data-as-artifacts)).
-But other r scripts don't seem to need to use that. And, the artifact still didn't show up in the repo 
-or local directory!!
 
 <br>
 
