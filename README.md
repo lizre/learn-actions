@@ -1,4 +1,4 @@
-# Learn Automation with GitHub Actions 
+d# Learn Automation with GitHub Actions 
 
 ### A guide for the bewildered
 GitHub Actions learning resources aren't made for non-technical people new to automation. It's too bad because it's an otherwise accessible way to learn about automation. This repo should help with that.
@@ -9,4 +9,4 @@ GitHub Actions learning resources aren't made for non-technical people new to au
 <br>very basic 1, 2 or 3 line R and bash coding
 
 
-### Ok, now go start [here](https://github.com/lizre/learn-actions/blob/main/guide.html)!
+### Ok, now go start [here](https://github.com/lizre/learn-actions/blob/main/learn-actions.md)!
