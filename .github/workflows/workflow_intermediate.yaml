@@ -1,0 +1,57 @@
+name: workflow_intermediate
+
+on: [push]
+  branches: main
+  paths-ignore: 
+          - README.md
+          - learn-actions/
+          - .github/workflows/workflow_basic.yaml
+          - .github/workflows/workflow_intermediate.yaml
+  
+  workflow_dispatch:
+
+jobs:
+
+  print-status: 
+    runs-on: macOS-latest
+    name: Checkout and print repo and workflow info
+    steps:
+      
+      - name: Print job status
+        run: echo "🍏 This job's status is ${{ job.status }}."
+  
+  
+  use-r: 
+    runs-on: macOS-latest
+    name: Make files and store to repo
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+        
+      - name: Set up R
+        uses: r-lib/actions/setup-r@master
+    
+      - name: Run some R code to make a .txt file
+        run: |
+          mkdir -p data/my_file1.txt
+          Rscript -e 'writeLines("text_lines", "my_file3.txt")'
+      
+      - name: Commit and push file(s)
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add --all
+          git commit -am "add txt file"
+          git push 
+
+  use-py:
+    runs-on: macOS-latest
+    name: Make files and store to repo
+    steps:
+      - name: install dependencies
+        run: |
+          pip install pip==20.1.1
+          python -m pip install --upgrade pip
+          pip install pylint
+      - name: print pip version
+        run: pip -V
