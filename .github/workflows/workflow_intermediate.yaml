@@ -1,26 +1,24 @@
 name: workflow_intermediate
 
-on: [push]
-  branches: main
-  paths-ignore: 
+on:
+    push:
+        branches: main
+        paths-ignore: 
           - README.md
           - learn-actions/
           - .github/workflows/workflow_basic.yaml
           - .github/workflows/workflow_intermediate.yaml
-  
-  workflow_dispatch:
+    
+    workflow_dispatch:
 
 jobs:
-
-  print-status: 
+  
+  authenticate-with-token:
     runs-on: macOS-latest
-    name: Checkout and print repo and workflow info
-    steps:
-      
-      - name: Print job status
-        run: echo "🍏 This job's status is ${{ job.status }}."
-  
-  
+    name: authenticate with GITHUB_TOKEN
+
+
+
   use-r: 
     runs-on: macOS-latest
     name: Make files and store to repo

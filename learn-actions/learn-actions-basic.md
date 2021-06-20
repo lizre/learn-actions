@@ -61,9 +61,36 @@ on:
 generate time intervals as cron expressions at [here](https://crontab.cronhub.io/).
 
 
+I decided to make this workflow run whenever I push, but not counting certain files. If I push to any of these paths, it will not trigger the workflow to run. This will keep things clean while I make frequent pushes to these files.
+
+```
+on:
+    push:
+        branches: main
+        paths-ignore: 
+          - README.md
+          - learn-actions/
+          - .github/workflows/workflow_basic.yaml
+          - .github/workflows/workflow_intermediate.yaml
+    
+```
+
+This is a learning repo, so there is actually no need to trigger workflows automatically. Being able to run the workflow manually any time is actually better for learning, testing, etc. That way, no need to do pushes/commits just to get the workflow to run (which you might do to, say, test or debug it).
+To do this, use workflow_dispatch:
+
+```
+    workflow_dispatch:
+```
+
+Now you can run your workflow any time in the Actions tab of your repo:
+
+![image](https://user-images.githubusercontent.com/38010821/122676864-d8190d80-d1ad-11eb-949d-a2a13a5a5628.png)
+
+
 ## Note that:
-indentation matters for this wole .yml file!
+indentation matters for this whole file!
 <br>You don't have to do anything to activate the workflow. It starts right away, whenever the triggering event happens!
+
 
 <br><br>
 

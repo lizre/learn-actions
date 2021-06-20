@@ -5,6 +5,7 @@ on:
         branches: main
         paths-ignore: 
           - README.md
+          - learn-actions/
           - .github/workflows/workflow_basic.yaml
           - .github/workflows/workflow_intermediate.yaml
     

@@ -1,7 +1,5 @@
 
-# Debugging
-
-### Failed workflow: find failing step and errors
+# Failed workflow: find failing step and errors
 
 [Example](https://github.com/lizre/axns/runs/2706797755?check_suite_focus=true)
 
@@ -16,7 +14,10 @@ Execution halted
 Error: Process completed with exit code 1.
 ```
 
-### Test Rscript steps 
+<br>
+<br>
+
+# Test Rscript steps 
 
 by running the part after "run" in Terminal. 
 <br>However, working in Terminal doesn't mean the workflow will work.
@@ -30,4 +31,10 @@ worked in the Terminal.
 This `Rscript -e 'writeLines("text", paste0("data/", "text", ".txt"))'` worked
  just fine in Terminal and is very simple, but it would not run as a workflow.
 
+<br>
+<br>
+
+# Advanced: act: A debugging tool that runs your workflows locally
+
+https://github.com/nektos/act
 
