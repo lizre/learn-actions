@@ -1,20 +1,17 @@
 
 # Failed workflow: find failing step and errors
 
-[Example](https://github.com/lizre/axns/runs/2706797755?check_suite_focus=true)
+Use this:
+![image](https://user-images.githubusercontent.com/38010821/122679448-e4ef2e80-d1b8-11eb-9112-5a7814bb80b7.png)
 
-```{r, eval = FALSE}
-Run Rscript -e 'writeLines("text", paste0("data/", "text", ".txt"))'
-Error: Error in file(con, "w") : cannot open the connection
-Calls: writeLines -> file
-In addition: Warning message:
-In file(con, "w") :
-  cannot open file 'data/text.txt': No such file or directory
-Execution halted
-Error: Process completed with exit code 1.
-```
-
+It is NOT just viewing the workflow!
 <br>
+It actually tells you if something is wrong with file:
+[example](https://github.com/lizre/learn-actions/actions/runs/954653138/workflow):
+![image](https://user-images.githubusercontent.com/38010821/122679478-0b14ce80-d1b9-11eb-83d4-332262d95c62.png)
+
+
+
 <br>
 
 # Test Rscript steps 
