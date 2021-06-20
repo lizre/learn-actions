@@ -1,5 +1,4 @@
-name: workflow_intermediate_token
-name: Use GITHUB_TOKEN to respond to issue
+name: Use GITHUB_TOKEN for issues
 on:
   issues:
     types: [opened]

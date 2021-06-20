@@ -1,4 +1,4 @@
-name: workflow_intermediate
+name: Intermediate workflow
 
 on:
     push:
