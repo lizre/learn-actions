@@ -9,4 +9,9 @@ GitHub Actions learning resources aren't made for non-technical people new to au
 <br>very basic 1, 2 or 3 line R and bash coding
 
 
-### Ok, now go start [here](https://github.com/lizre/learn-actions/blob/main/learn-actions.md)!
+### [Basic workflow](https://github.com/lizre/learn-actions/blob/main/learn-actions/learn-actions-basic.md)
+### [Debug and troubleshoot](https://github.com/lizre/learn-actions/blob/main/learn-actions/debugging.md)
+### [Intermediate workflow](https://github.com/lizre/learn-actions/blob/main/learn-actions/learn-actions-intermediate.md)
+### [Sources and appendices](https://github.com/lizre/learn-actions/blob/main/learn-actions/sources-and-appendices.md)
+
+
