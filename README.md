@@ -1,4 +1,4 @@
-d# Learn Automation with GitHub Actions 
+# Learn Automation with GitHub Actions 
 
 ### A guide for the bewildered
 GitHub Actions learning resources aren't made for non-technical people new to automation. It's too bad because it's an otherwise accessible way to learn about automation. This repo should help with that.
