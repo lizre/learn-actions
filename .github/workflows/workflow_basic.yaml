@@ -1,13 +1,14 @@
 name: workflow_basic
-on: [push]
-  branches: main
-  paths-ignore: 
+
+on:
+    push:
+        branches: main
+        paths-ignore: 
           - README.md
-          - learn-actions/
           - .github/workflows/workflow_basic.yaml
           - .github/workflows/workflow_intermediate.yaml
-  
-  workflow_dispatch:
+    
+    workflow_dispatch:
 
 jobs:
 
