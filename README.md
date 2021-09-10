@@ -12,6 +12,12 @@ GitHub Actions learning resources aren't made for non-technical people new to au
 ### [Basic workflow](https://github.com/lizre/learn-actions/blob/main/learn-actions/learn-actions-basic.md)
 ### [Debug and troubleshoot](https://github.com/lizre/learn-actions/blob/main/learn-actions/debugging.md)
 ### [Intermediate workflow](https://github.com/lizre/learn-actions/blob/main/learn-actions/learn-actions-intermediate.md)
+
+### [Intermediate workflow in another one of my repos](https://github.com/lizre/learn-ml/blob/main/.github/workflows/lint.yaml): python linter on PR
+- [demo PR](https://github.com/lizre/learn-ml/pull/2)
+- [demo failed run on that PR, showing pycodestyle error messages](https://github.com/lizre/learn-ml/pull/2/checks?check_run_id=3568237239)
+
+
 ### [Sources and appendices](https://github.com/lizre/learn-actions/blob/main/learn-actions/sources-and-appendices.md)
 
 
