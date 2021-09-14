@@ -1,0 +1,22 @@
+name: lint
+
+on:
+    pull_request:
+        branches: main
+        paths-ignore:
+          - README.md
+#          - .github/workflows/lint.yaml
+
+    workflow_dispatch:
+
+jobs:
+   pycodestyle:
+    name: pycodestyle
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: check out main
+      uses: actions/checkout@main
+
+    - name: Python Style Checker
+      uses: andymckay/pycodestyle-action@0.1.3
