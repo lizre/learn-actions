@@ -16,51 +16,18 @@ Actions using GITHUB_TOKEN will be done by github-actions, a GitHub bot:
 
 
 <br>
-
-# Encrypted secrets
-This is not the same as GITHUB_TOKEN.
-
-Add in Settings > secrets. Now access it by secret key using ${{ secrets.<your-key> }} in the yml file.
-
-
-[secrets](https://docs.github.com/en/actions/reference/encrypted-secrets)
-
-[Use secrets tutorial](https://github-actions-hero.vercel.app/lessons/9)
-
-
 <br>
 
 
-# More Ideas for intermediate 
+# Next:
 
 [matrix build](https://github-actions-hero.vercel.app/lessons/12)
 "Matrix build": a thing to make it go on multiple OSs and multiple versions of R. Start at 8:45 [here](https://www.jimhester.com/talk/2020-rsc-github-actions/)
 
 [Linter](https://github.com/r-lib/actions/blob/master/examples/lint-project.yaml)
 
-[https://github.com/sdras/awesome-actions](https://github.com/sdras/awesome-actions) 
-
-actually use R??
-
-[use actions to get data](https://github.com/marketplace/actions/flat-data) 
-
-
-[detailed syntax](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
-
-
-# Ideas for advanced:  ci/cd and deployment
-
-
-<br>[Data version control: pachyderm: MLOps meets DevOps](https://github.blog/2020-10-15-pachyderm-and-the-power-of-github-actions-mlops-meets-devops/)
-
-<br>[https://github.com/learn/devops](https://github.com/learn/devops) : includes Actions
-
-<br>Do on cli https://www.youtube.com/watch?v=UM73gUIoWmE
-
-[setup GitHub Actions to connect to AML](https://github.com/github/data-science/pull/772/files?short_path=0a9ad0f#diff-0a9ad0fcb754212ac21763b0e0cb1d5c823d7e69f44db6c9f4fc2b7b5806878a)
-
-[secretshub secrets manager](https://github.com/secrethub/actions) 
-
-[use CLI to manage Actions secrets](https://github.com/unfor19/githubsecrets)
-
-[https://gist.github.com/br3ndonland/f9c753eb27381f97336aa21b8d932be6#secrets](https://gist.github.com/br3ndonland/f9c753eb27381f97336aa21b8d932be6#secrets) 
+Docker with actions
+[https://github.com/actions/hello-world-docker-action](https://github.com/actions/hello-world-docker-action)
+[https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action)
+[https://github.com/docker/github-actions](https://github.com/docker/github-actions)
+Docker actions [here](https://github.com/sdras/awesome-actions)
