@@ -1,13 +1,4 @@
 
-
-## Preface: What is actions even?
-Actions is a way to make a GitHub computer do things for you, like run some code that makes a file. The steps you make it do are called a "workflow". You can make it do your workflow on a schedule, or when certain events happen (like someone pushes to your repo).
-
-
-<br>
-
-# Start!!
-
 # 1. make a folder and repo.
 I made a folder in lizre/Downloads/learn-actions. 
 <br>Do git init and then [make a github repo](https://github.com/new).
