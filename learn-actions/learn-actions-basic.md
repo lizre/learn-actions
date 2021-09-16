@@ -1,16 +1,8 @@
 
-# Preface
 
-## What is actions
+## Preface: What is actions even?
 Actions is a way to make a GitHub computer do things for you, like run some code that makes a file. The steps you make it do are called a "workflow". You can make it do your workflow on a schedule, or when certain events happen (like someone pushes to your repo).
 
-
-## Why use actions: what you can do 
-[Lint](https://github.com/r-lib/actions/blob/master/examples/lint-project.yaml) your code when you push it
-<br>[Save data](https://blog.simonpcouch.com/blog/r-github-actions-commit/) at regular intervals
-<br>[send messages](https://github.com/orchid00/actions_sandbox/blob/master/.github/workflows/greetings.yml) in response to issues or pull requests 
-<br>[Render](https://github.com/orchid00/actions_sandbox/blob/main/.github/workflows/deploy_bookdown.yml) and deploy, e.g., rmarkdown
-<br>[Big list](https://github.com/r-lib/actions/tree/master/examples) of other things useful for R
 
 <br>
 
